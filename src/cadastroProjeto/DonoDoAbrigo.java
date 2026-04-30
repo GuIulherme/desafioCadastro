@@ -3,7 +3,7 @@ package cadastroProjeto;
 import java.util.ArrayList;
 import java.util.Scanner;
 
-public class DonoDoAbrigo {
+public abstract class DonoDoAbrigo {
 	Scanner sc = new Scanner(System.in);
 
 	private ArrayList<Pet> pet;
@@ -13,6 +13,8 @@ public class DonoDoAbrigo {
 		SexoPet sexoPet = null;
 		String nome = null;		
 		String sobrenome = null;
+		String idade = null;
+		String peso = null;
 		
 		while (nome.trim().isEmpty() || sobrenome.trim().isEmpty() || 
 			   !(nome.matches("[A-Z]+")) || !(sobrenome.matches("[A-Z]+")) ) {
@@ -24,11 +26,13 @@ public class DonoDoAbrigo {
 			
 			if (nome.trim().isEmpty() || sobrenome.trim().isEmpty() || 
 				!(nome.matches("[A-Z]+")) || !(sobrenome.matches("[A-Z]+"))) {
+
 				System.out.println("Nome e sobrenome não podem ser invalidos");
+				idade = null;
+				sobrenome = null;
 			}
 			
 		}
-		
 		
 		while (tipoPet == null) {
 			System.out.println("Tipo: ");
@@ -50,22 +54,30 @@ public class DonoDoAbrigo {
 			}
 		}
 		
-		System.out.println("Numero da casa: ");
+		System.out.println("Numero da casa: "); // garantir que seja só numero
 		String nmrCasa = sc.nextLine();
 		System.out.println("Cidade: ");
 		String cidade = sc.nextLine();
 		System.out.println("Rua: ");
 		String rua = sc.nextLine();
-		System.out.println("Idade: "); // colocar as parada
-		int idade = sc.nextInt();
-		System.out.println("Peso: "); // só numeros
-		Double peso = sc.nextDouble();
+		
+		while (idade.trim().isEmpty() || !(idade.matches("^[0-9.]+$")) ) {
+			System.out.println("Idade: "); 
+			idade = sc.nextLine();
+		}
+
+		while (peso.trim().isEmpty() || !(peso.matches("^[0-9.]+$")) ) {
+			System.out.println("peso: "); 
+			peso = sc.nextLine();
+		}
+
 		System.out.println("Raça: ");
 		String raca = sc.nextLine();
 		Pet petNovo = new Pet(nome, sobrenome, tipoPet, sexoPet, nmrCasa, cidade, rua, idade, peso, raca);
 		pet.add(petNovo);	
 		
 	}
+	
 	public void buscarPet() {
 		
 	}
