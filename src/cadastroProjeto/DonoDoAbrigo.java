@@ -1,20 +1,26 @@
 package cadastroProjeto;
 
-import java.util.ArrayList;
+import java.io.BufferedWriter;
+import java.io.File;
+import java.io.FileWriter;
+import java.io.IOException;
 import java.util.Scanner;
+import java.util.ArrayList;
+import java.util.Calendar;
 
-public abstract class DonoDoAbrigo {
+
+public class DonoDoAbrigo {
 	Scanner sc = new Scanner(System.in);
 
-	private ArrayList<Pet> pet;
+	private ArrayList<Pet> pet = new ArrayList<>();
 	
 	public void cadastrarPet(){
 		TipoPet tipoPet = null;
 		SexoPet sexoPet = null;
-		String nome = null;		
-		String sobrenome = null;
-		String idade = null;
-		String peso = null;
+		String nome = "";		
+		String sobrenome = "";
+		String idade = "";
+		String peso = "";
 		
 		while (nome.trim().isEmpty() || sobrenome.trim().isEmpty() || 
 			   !(nome.matches("[A-Z]+")) || !(sobrenome.matches("[A-Z]+")) ) {
@@ -28,8 +34,8 @@ public abstract class DonoDoAbrigo {
 				!(nome.matches("[A-Z]+")) || !(sobrenome.matches("[A-Z]+"))) {
 
 				System.out.println("Nome e sobrenome não podem ser invalidos");
-				idade = null;
-				sobrenome = null;
+				idade = "";
+				sobrenome = "";
 			}
 			
 		}
@@ -76,9 +82,42 @@ public abstract class DonoDoAbrigo {
 		Pet petNovo = new Pet(nome, sobrenome, tipoPet, sexoPet, nmrCasa, cidade, rua, idade, peso, raca);
 		pet.add(petNovo);	
 		
+		escrever(petNovo);		
+	}
+	
+	public void escrever(Pet pet) {
+		
+		Calendar cal = Calendar.getInstance();
+		File pasta = new File("PetsCadastrados");
+		
+		File arquivo = new File(pasta, cal.get(Calendar.YEAR) + cal.get(Calendar.MONTH) + cal.get(Calendar.DAY_OF_MONTH) + "T" 
+								+ cal.get(Calendar.HOUR) + cal.get(Calendar.MINUTE) + "-" 
+								+ pet.getNome().toUpperCase() + pet.getSobrenome().toUpperCase() + ".TXT");
+		
+		try (BufferedWriter writer = new BufferedWriter(new FileWriter(arquivo, true))) {
+			writer.write("1 - " + pet.getNome() + " " + pet.getSobrenome());
+			writer.newLine();
+			writer.write("2 - " + pet.getTipoPet());
+			writer.newLine();
+			writer.write("3 - " + pet.getSexoPet());
+			writer.newLine();
+			writer.write("4 - Rua " + pet.getRua() + ", " + pet.getNmrCasa() + ", " + pet.getCidade());
+			writer.newLine();
+			writer.write("5 - " + pet.getCidade() + " anos");
+			writer.newLine();
+			writer.write("6 - " + pet.getPeso() + " kg");
+			writer.newLine();
+			writer.write("7 - " + pet.getraca());		
+			System.out.println("ARQUIVO CRIADO COM SUCESSO");
+		} 
+		catch (IOException ex) {
+			ex.printStackTrace();
+		} 
+	
 	}
 	
 	public void buscarPet() {
+		//acessar arquivos de pets cadastrados, procurar neles os padrões escritos, fazer um while, enquanto todos não forem encontrados, ela ira enumerar e listar todas as caracteristicas dos pets que correspondem as pesquisas
 		
 	}
 	public void deletarPet() {

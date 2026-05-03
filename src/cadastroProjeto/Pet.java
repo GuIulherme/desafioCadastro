@@ -19,7 +19,7 @@ public class Pet {
 	private String raca;
 	
 	public Pet(String nome, String sobrenome, TipoPet tipoPet, SexoPet sexoPet, String rua, String nmrCasa, 
-			String cidade, String idade, String peso, String raca) {
+			   String cidade, String idade, String peso, String raca) {
 		super();
 		this.sobrenome = sobrenome;
 		setNome(nome);
@@ -120,28 +120,6 @@ public class Pet {
 		this.raca = raca;
 	}
 	
-	public void escrever(String nome, String sobrenome, TipoPet tipoPet, SexoPet sexoPet, String rua, String nmrCasa, 
-			String cidade, String idade, String peso, String raca) {
-			File arquivo = new File(nome + ".txt");
-			try (BufferedWriter writer = new BufferedWriter(new FileWriter(arquivo, true))) {
-				writer.write("1 - " + nome + " " + sobrenome);
-				writer.newLine();
-				writer.write("2 - " + tipoPet);
-				writer.newLine();
-				writer.write("3 - " + sexoPet);
-				writer.newLine();
-				writer.write("4 - Rua " + rua + ", " + nmrCasa + ", " + cidade);
-				writer.newLine();
-				writer.write("5 - " + idade + " anos");
-				writer.newLine();
-				writer.write("6 - " + peso + " kg");
-				writer.newLine();
-				writer.write("7 - " + raca);				
-			} catch (IOException ex) {
-				ex.printStackTrace();
-			}
-		
-		}
 	}
 
 

@@ -7,7 +7,8 @@ public class CadastroTeste {
 	public static void main(String[] args) {
 		Scanner sc = new Scanner(System.in);
 		PerguntasEssenciais pe = new PerguntasEssenciais();
-
+		DonoDoAbrigo dono = new DonoDoAbrigo();
+		
 		int escolha = 0;
 		
 		while(escolha != 6) {
@@ -34,7 +35,7 @@ public class CadastroTeste {
 		}
 		else if (escolha == 1) { 
 			pe.LerArquivo();
-			
+			dono.cadastrarPet();
 		}
 		
 		
