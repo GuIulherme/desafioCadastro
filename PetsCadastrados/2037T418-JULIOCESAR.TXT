@@ -1,0 +1,7 @@
+1 - JULIO CESAR
+2 - GATO
+3 - FEMININO
+4 - Rua 45, pia, oi
+5 - oi anos
+6 - 2 kg
+7 - rato

@@ -1,0 +1,7 @@
+1 - LOKO ERTETO
+2 - CACHORRO
+3 - MASCULINO
+4 - Rua 3, pinhais, 45
+5 - 45 anos
+6 - 5 kg
+7 - turto

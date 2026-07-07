@@ -22,6 +22,7 @@ public class CadastroTeste {
 		
 		if (sc.hasNextInt()) {
 			escolha = sc.nextInt();
+			sc.nextLine(); 
 			System.out.println("Opção " + escolha + " selecionada");
 		} else {
 			System.out.println("Apenas numeros inteiros são aceitos!");
@@ -35,9 +36,65 @@ public class CadastroTeste {
 		}
 		else if (escolha == 1) { 
 			pe.LerArquivo();
-			dono.cadastrarPet();
+			dono.cadastrarPet(sc);
+		}
+		else if (escolha == 2) { 
+			
+			Criterio[] criterios = DonoDoAbrigo.selecionaCriterio(sc);
+			dono.buscarPet(criterios);
+			
+			System.out.println("Digite o indice do pet que voce deseja alterar: ");
+			int indice = sc.nextInt();
+			sc.nextLine();
+			
+			dono.ImprimirPet(indice);
+			boolean alterando = true;
+			
+			while (alterando) {
+				System.out.println("Quais dados deseja alterar?");
+				for (TipoBusca tipo : TipoBusca.values()) {
+					if (tipo != TipoBusca.TIPO || tipo != TipoBusca.SEXO)
+						System.out.println("- " + tipo);
+				}
+				TipoBusca alteracao = TipoBusca.valueOf(sc.next().toUpperCase());
+				sc.nextLine();
+				dono.alterarPet(indice, alteracao, sc);
+				System.out.println("Deseja continuar alterando os dados do pet? (1 para sim, 0 para não)");
+				if (sc.nextInt() == 0)
+					alterando = false;
+			}	
+		}
+		else if (escolha == 3) { 
+			
+			Criterio[] criterios = DonoDoAbrigo.selecionaCriterio(sc);
+			dono.buscarPet(criterios);
+			
+			System.out.println("Digite o indice do pet que voce deseja deletar: ");
+			int indice = sc.nextInt();
+			sc.nextLine();
+			
+			dono.ImprimirPet(indice);
+			boolean deletando = true;
+			
+			while (deletando) {
+				dono.deletarPet(indice);
+				System.out.println("Pet deletado com sucesso!!");
+				System.out.println("Deseja continuar deletando? (1 para sim, 0 para não)");
+				if (sc.nextInt() == 0)
+					deletando = false;				
+			}
 		}
 		
+		else if (escolha == 4) {
+			for (int i=0; i < dono.getPets().size(); i++) {
+				dono.ImprimirPet(i);
+			}
+		}
+		
+		else if (escolha == 5) {
+			Criterio[] criterios = DonoDoAbrigo.selecionaCriterio(sc);
+			dono.buscarPet(criterios);
+		}
 		
 		}
 		System.out.println("Saindo...");

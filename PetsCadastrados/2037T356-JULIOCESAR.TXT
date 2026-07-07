@@ -1,0 +1,7 @@
+1 - JULIO CESAR
+2 - CACHORRO
+3 - MASCULINO
+4 - Rua 23, pinha, jivaldo
+5 - jivaldo anos
+6 - 3 kg
+7 - petro

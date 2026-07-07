@@ -113,7 +113,7 @@ Agora, ao salvar o PET em um objeto, você deverá salvar as respostas em um arq
 
 1. O nome do arquivo deverá seguir o formato: ano, mês, dia,T, hora, minuto - NOME+SOBRENOME em maiúsculo.
 2. O arquivo deverá ser salvo na pasta `petsCadastrados` na raiz do projeto.
-3. O conteúdo do arquivo deverá conter TODAS AS RESPOSTAS POR LINHA, ou seja, cada resposta deverá estar em uma linha diferente.
+3. O conteúdo do arquivo deverá conter TODAS AS RESPOSTAS POR LINHA, ou seja, cada resposta deverá estar em uma linha dreturnerente.
 4. O campo endereço deverá ser salvo todo na mesma linha.
 5. O arquivo somente conterá **RESPOSTAS**, PERGUNTAS NÃO!
 
@@ -216,7 +216,7 @@ Caso o usuário escolha a opção 2, você deverá exibir um novo menu com as se
 3. Novas perguntas não tem obrigatoriedade de resposta, mas caso o usuário **NÃO** responda, coloque um NÃO INFORMADO.
 
 ### _Regras Opção 2 ⚠️_
-1. O usuário NÃO PODERÁ modificar as perguntas ORIGINAIS (de 1 a 7), somente as perguntas que ele adicionou.
+1. O usuário NÃO PODERÁ modreturnicar as perguntas ORIGINAIS (de 1 a 7), somente as perguntas que ele adicionou.
 2. O usuário deverá digitar o número da pergunta que deseja alterar,então você deverá printar na tela e oferecer a opção a ser alterada.
 3. O usuário poderá alterar a pergunta, mas não a resposta, ou seja, você deverá perguntar a nova pergunta e salvar no arquivo.
 

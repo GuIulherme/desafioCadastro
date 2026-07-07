@@ -1,10 +1,5 @@
 package cadastroProjeto;
 
-import java.io.BufferedWriter;
-import java.io.File;
-import java.io.FileWriter;
-import java.io.IOException;
-
 public class Pet {
 
 	private String nome;
@@ -113,12 +108,16 @@ public class Pet {
 		this.peso = peso;
 	}
 	
-	public String getraca() {
+	public String getRaca	() {
 		return raca;
 	}
-	public void setraca(String raca) {
-		this.raca = raca;
+	public void setRaca(String raca) {
+		if (rua.trim().isEmpty()) 
+			this.rua = ("NÃO INFORMADO");
+		else
+			this.raca = raca;
 	}
+	
 	
 	}
 
